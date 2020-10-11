@@ -22,10 +22,10 @@ DROPOUT = 0.1
 EPOCHS = 3
 
 
-max_l = 20
+max_l = 22
 
 
-def f(text):
+def clean_text(text):
     text = str(text)
     text = text.lower()
     if text.islower():
@@ -40,8 +40,8 @@ df = pd.read_csv('dataset_1.csv')
 
 df = df.sample(frac=1, random_state=1).reset_index(drop=True)
 df = df.dropna()
-df2 = df['body'].apply(f)
-df1 = df['title'].apply(f)
+df2 = df['body'].apply(clean_text)
+df1 = df['title'].apply(clean_text)
 
 r = pd.DataFrame({'title': df1.values, 'body': df2.values})
 r = r.dropna().reset_index()
