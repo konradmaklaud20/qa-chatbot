@@ -6,7 +6,6 @@ import pandas as pd
 import pickle
 
 tf.random.set_seed(1234)
-AUTO = tf.data.experimental.AUTOTUNE
 strategy = tf.distribute.get_strategy()
 
 MAX_LENGTH = 22
@@ -51,11 +50,11 @@ answers = r['body']
 questions = r['title']
 
 print(r.shape)
-print('Привер вопроса: {}'.format(questions[2010]))
+print('Пример вопроса: {}'.format(questions[2010]))
 # как вы убираете квартиру
 print('Пример ответа: {}'.format(answers[2010]))
 # избавляюсь от кого то или чего то ненужного
-print('Привер вопроса: {}'.format(questions[1000]))
+print('Пример вопроса: {}'.format(questions[1000]))
 # кто играл в турок скажиите как пройти миссию где нужно убить теранозавра
 print('Пример ответа: {}'.format(answers[1000]))
 # когда это животное лежит избитое недолго надо ему в глаз ножик воткнуть
